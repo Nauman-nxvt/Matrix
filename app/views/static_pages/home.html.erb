@@ -1,3 +1,18 @@
-<%provide(:title,'HOME')%>
+<% provide(:title,'HOME') %>
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>
+
+
+<!-- <form accept-charset="UTF-8" action="/static_pages/mul" method="post"><div style="margin:0;padding:0;display:inline"></div>
+-->
+ <%= form_tag(:controller => "static_pages", :action => "mul",:method => "post") do %>  
+  <label for="m1">Matrix 1:</label>
+  <input id="m1" name="m1" type="text" />
+  <label for="m2">Matrix 2:</label>
+  <input id="m2" name="m2" type="text" />
+  <input name="commit" type="submit" value="Multiply" />
+<% end %>
+</form>
+
+
+

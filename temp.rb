@@ -15,8 +15,8 @@ module MatrixMathNazar
       end
    end
 
-   def multiply(m2)
-      if self.cardinatily[:cols] == m2.cardinatily[:rows]
+   def multiply(m1,m2)
+      if m1.cardinatily[:cols] == m2.cardinatily[:rows]
          m = Matrix.new
          1.upto(self.cardinatily[:rows]) do |row_index|
             resultant_row = []
@@ -36,11 +36,17 @@ module MatrixMathNazar
    end
 end
 
-class Matrix
+#class
+module Matrix
    include MatrixMathNazar
-   attr_accessor :raw_data 
+  # attr_accessor : 
 
-   def initialize(params=nil)    
+=begin   def initialize(params=nil)    
+      @raw_data = []
+      extract_params(params) unless params.nil?
+   end
+=end   
+   def make_matrix(params=nil)    
       @raw_data = []
       extract_params(params) unless params.nil?
    end
@@ -129,6 +135,7 @@ end
 ###########################################################################################
 
 class StaticPagesController < ApplicationController
+  include Matrix
   def home
   end
   
@@ -136,13 +143,16 @@ class StaticPagesController < ApplicationController
      
 input1 = params[:m1]
 input2= params[:m2]
-
 @opr1=input1
 @opr2=input1
+#m1 = Matrix.new(input1)
+#m2 = Matrix.new(input2)
 
-m1 = Matrix.new(input1)
-m2 = Matrix.new(input2)
+m1 = make_matrix(input1)
+m2 = make_matrix(input2)
 
+#m1 = Matrix.new([[1,2,4],[1,4,6],[4,5,9]])
+#m2 = Matrix.new("1 2 3 | 4 5 6 | 7 8 9")
 
 
 m6 = m1.multiply(m2).to_s

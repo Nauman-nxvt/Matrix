@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rails first app| <%= yield(:title) %></title>
+  <title><% full_title(:title) %></title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <script type="text/javascript"
+  	src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+
+
   <%= csrf_meta_tags %>
 </head>
 <body>
 
 <%= yield %>
 
+ 
 </body>
 </html>
